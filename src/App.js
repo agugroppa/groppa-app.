@@ -12,6 +12,7 @@ function App() {
       <header>
         <NavBar/>
         <ItemListContainer greeting={"Bienvenido a BARA SUSHI!"}/>
+        
       </header>
     </div>
   );
