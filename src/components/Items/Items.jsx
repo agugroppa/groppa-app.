@@ -1,13 +1,14 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 import './Items.css';
+import { Link } from "react-router-dom";
 
 
 const Items = ({item})=>{
     return(
         <>
-            
-      <div className="item-card">
+            <Link to={"/product/" + item.id}>
+            <div className="item-card">
             <div className="item-header"><u>{item.nombre}</u></div>
                 <div className="item-img">
                 <img className="img img-fluid" src={item.pictureUrl} alt="" width={"25%"}/>
@@ -16,6 +17,8 @@ const Items = ({item})=>{
             <div className="item-price"> {item.precio}</div>
     
       </div>
+            </Link>
+      
         </>
     );
 }

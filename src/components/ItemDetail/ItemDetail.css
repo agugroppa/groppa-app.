@@ -1,0 +1,22 @@
+.item-cardDetail{
+    display: flex;
+    
+}
+
+.item-headerDetail{
+    font-size: x-large; 
+    font-style: italic;
+    padding-top: 5%;
+
+}
+
+.item-descriptionDetail{
+    padding-right: 10%;
+    padding-top: 5%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.item-priceDetail{
+    padding-top: 5%;
+    white-space: nowrap;
+}
