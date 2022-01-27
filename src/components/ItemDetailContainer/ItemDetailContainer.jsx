@@ -14,7 +14,7 @@ import ItemListArray from "../../productos";
 
 
 useEffect(()=>{
-    setTimeout(()=>{
+    
         const  GetItem = new Promise ((resolve, reject)=>{
             setTimeout(()=>{
                 resolve(ItemListArray.find (item=> item.id === productId))
@@ -26,7 +26,7 @@ useEffect(()=>{
         GetItem.catch ((err)=> {
             setProducto(err)
         })
-    },[productId])
+    
 });
 
   return (

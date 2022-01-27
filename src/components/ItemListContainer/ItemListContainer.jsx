@@ -3,44 +3,66 @@ import "./ItemListContainer.css";
 import ItemCount from "../ItemCount/ItemCount";
 import ItemList from "../ItemList/ItemList";
 import ItemListArray from "../../productos";
+import { BrowserRouter, Switch, Route, useParams, Link } from 'react-router-dom';
 
 
-const ItemListContainer = ({greeting}) =>{
+
+const ItemListContainer = ({ greeting }) => {
 
     function onAdd() {
         console.log("Item agregado");
-      }
+    }
 
-    const [itemList, setItemList] = useState ([]);
+    const [itemList, setItemList] = useState([]);
+    const [producto, setProducto] = useState({});
+    const { categoryId } = useParams();
 
-    const traerProductos = new Promise ((resolve, reject) => {
-      setTimeout (()=> {
-          resolve (ItemListArray);
-      }, 2000)
-  });
 
-    useEffect(()=>{
-        traerProductos.then((res)=>{
-            setItemList(res);
-        });
-    }, []);    
+    const traerProductos = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(ItemListArray);
+        }, 2000)
+    });
 
-    
-return(
-        
-        <>
-           <div className="greetingStyles"> 
-                <h1>{greeting}</h1>
-           </div>
+    useEffect(() => {
+        traerProductos.then((res) => {
+            let conditional = categoryId
+            ? (
+                res.filter((item) => item.category === categoryId)
+              )
+            : (res);
+            console.log(conditional)
+            console.log(res)
+            setItemList(conditional);
             
-            <div className= "ItemCount">
-                {/*<ItemCount stock={5} initial={1} onAdd={onAdd}/>*/}
+        });
+    }, [categoryId]);
+
+console.log (ItemList)
+    
+      
+   /*  };
+    obtenerProductos();
+  }, [categoryId]); */
+
+
+
+
+
+
+
+
+
+    return (
+
+        <>
+            <div className="greetingStyles">
+                <h1>{greeting}</h1>
             </div>
-        
-            <ItemList itemList={itemList}/>
+            <ItemList itemList={itemList} />
 
         </>
-    );}
-
+    );
+}
 
 export default ItemListContainer;

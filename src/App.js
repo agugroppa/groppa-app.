@@ -23,10 +23,11 @@ function App() {
               </div>
           </Route>
 
-          {/* ruta contacto */}
-          {/* <Route path="/category/:categoryId">
+          {/* {/* ruta categorias */}
+          <Route path="/category/:categoryId">
+          <ItemListContainer/>
             Estas en categorias
-          </Route> */}
+          </Route>
 
           {/* ruta carrito */}
           <Route path="/product/:productId">

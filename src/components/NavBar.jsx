@@ -1,39 +1,54 @@
 import React from 'react';
+import "./NavBar.css"
 import CartWidget from './CartWidget/CartWidget';
-
-
+import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
-
-    
     return (
-        <div>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <div className="container-fluid">
-                    <a className="navbar-brand" href="#">Bara Sushi</a>
-                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                    </button>
-                    <div className="collapse navbar-collapse" id="navbarNav">
-                    <ul className="navbar-nav">
-                        <li className="nav-item">
-                        <a className="nav-link active" aria-current="page" href="#">Inicio</a>
-                        </li>
-                        <li className="nav-item">
-                        <a className="nav-link" href="#">Menu</a>
-                        </li>
-                        <li className="nav-item">
-                        <a className="nav-link" href="#">Contacto</a>
-                        </li>
-                    </ul>
-                    </div>
-                </div>
-                <CartWidget/>
-            </nav>
-        </div>
+      <div className="navbar">
+        <NavLink to="/">
+          <h1 clasName= "baraName">BARA SUSHI</h1>
+        </NavLink>
+        <ul className="navLinks">
+          <li>
+            <NavLink
+              to="/category/ensaladas"
+              className="navLink"
+              activeClassName="currentCategory"
+            >
+              ENSALADAS
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/category/combinados-de-sushi"
+              className="navLink"
+              activeClassName="currentCategory"
+            >
+              COMBINADOS DE SUSHI
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/category/otros-platos"
+              className="navLink"
+              activeClassName="currentCategory"
+            >
+              OTROS PLATOS
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/cart"
+              className="navLink"
+              activeClassName="currentCategory"
+            >
+              <CartWidget />
+            </NavLink>
+          </li>
+        </ul>
+      </div>
     );
-};
-
-export default NavBar;
-
-
+  };
+  
+  export default NavBar;
