@@ -1,6 +1,6 @@
 const ItemArray = [
     {id: '01', 
-     category: "ensalada",
+     category: "ensaladas",
      nombre: "Ensalada de salmon", 
      descripcion: "Ensalada arroz, nuggets de salmón, palta y queso philadelphia", 
      precio: "$ " + 875, 
@@ -28,7 +28,7 @@ const ItemArray = [
       pictureUrl: "https://scontent.fmdz2-2.fna.fbcdn.net/v/t1.6435-9/135870105_2755869314724276_4987483540304609151_n.jpg?_nc_cat=100&ccb=1-5&_nc_sid=a26aad&_nc_ohc=vCO3NSkxvtQAX9dth2D&_nc_ht=scontent.fmdz2-2.fna&oh=00_AT9LXleNvhBRyYM0lPT6TaIa45lU8yDs42omhx3gTK0siQ&oe=62107E63"
   },
     {id: '05',
-      category: "otros/platos", 
+      category: "otros-platos", 
       nombre: "Ceviche", 
       descripcion: "Cubos de pescado blanco, salmón fresco y langostinos marinados en limon y cilantro", 
       precio: "$ " + 860, 

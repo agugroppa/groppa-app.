@@ -12,7 +12,7 @@ const ItemCount = ({stock, initial, onAdd}) => {
       <div style={{ width: "200px" }}>
         <div className="d-flex flex-row justify-content-between">
           <Button
-            disabled={count < 1}
+            disabled={count <= 1}
             onClick={() => {
               setCount(count - 1);
             }}

@@ -41,18 +41,6 @@ const ItemListContainer = ({ greeting }) => {
 console.log (ItemList)
     
       
-   /*  };
-    obtenerProductos();
-  }, [categoryId]); */
-
-
-
-
-
-
-
-
-
     return (
 
         <>

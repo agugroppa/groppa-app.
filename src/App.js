@@ -26,7 +26,7 @@ function App() {
           {/* {/* ruta categorias */}
           <Route path="/category/:categoryId">
           <ItemListContainer/>
-            Estas en categorias
+            Estás en categorias
           </Route>
 
           {/* ruta carrito */}
