@@ -2,10 +2,10 @@ import React, {useState} from 'react';
 import {Button} from 'react-bootstrap';
 
 
+
 const ItemCount = ({stock, initial, onAdd}) => {
 
     const [count, setCount] = useState (initial);
-
 
     return(
         <>
@@ -33,7 +33,7 @@ const ItemCount = ({stock, initial, onAdd}) => {
         </div>
         
         <div className="d-flex justify-content-center">
-          <Button variant="outline-primary" onClick={() => onAdd()}>
+          <Button variant="outline-primary" onClick={() => onAdd(count)}>
             Agregar al carrito
           </Button>
         </div>

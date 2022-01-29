@@ -9,10 +9,6 @@ import { BrowserRouter, Switch, Route, useParams, Link } from 'react-router-dom'
 
 const ItemListContainer = ({ greeting }) => {
 
-    function onAdd() {
-        console.log("Item agregado");
-    }
-
     const [itemList, setItemList] = useState([]);
     const [producto, setProducto] = useState({});
     const { categoryId } = useParams();
@@ -31,14 +27,11 @@ const ItemListContainer = ({ greeting }) => {
                 res.filter((item) => item.category === categoryId)
               )
             : (res);
-            console.log(conditional)
-            console.log(res)
             setItemList(conditional);
             
         });
     }, [categoryId]);
 
-console.log (ItemList)
     
       
     return (
