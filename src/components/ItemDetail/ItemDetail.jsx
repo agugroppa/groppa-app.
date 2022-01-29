@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import React, { useState, useEffect, useParams } from "react";
+import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 import './ItemDetail.css';
 import ItemCount from "../ItemCount/ItemCount";
 //import swal from 'sweetalert';
@@ -8,7 +8,6 @@ import ItemCount from "../ItemCount/ItemCount";
 const ItemDetail = ({ producto }) => {
 
     const [mostrarItemCount, setMostrarItemCount] = useState(true);
-
 
     function onAdd(count) {
         alert('Agregaste ' + count + ' producto/s a tu carrito!');
@@ -33,7 +32,10 @@ const ItemDetail = ({ producto }) => {
                                     (mostrarItemCount) ?
                                         <ItemCount stock={5} initial={1} onAdd={onAdd} />
                                         :
-                                        <button className= "botonTerminarCompra">Ve a terminar tu compra</button>
+                                        <Link to ={'/cart'}>
+                                            <button className= "botonTerminarCompra">Ve a terminar tu compra </button>
+                                        </Link>
+                                                                                                     
                                 }
                             </div></>
                         :

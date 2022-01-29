@@ -6,6 +6,7 @@ import NavBar from './components/NavBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import Footer from './components/Footer/Footer';
+import ItemDetail from './components/ItemDetail/ItemDetail';
 
 
 function App() {
@@ -29,9 +30,14 @@ function App() {
             Estás en categorias
           </Route>
 
-          {/* ruta carrito */}
+          {/* ruta producto */}
           <Route path="/product/:productId">
             <ItemDetailContainer/>
+          </Route>
+
+           {/* ruta carrito */}
+           <Route path="/cart/:cartId">
+            <ItemDetail/>
           </Route>
 
         </Switch>
