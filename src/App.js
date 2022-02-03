@@ -6,11 +6,13 @@ import NavBar from './components/NavBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import Footer from './components/Footer/Footer';
-import ItemDetail from './components/ItemDetail/ItemDetail';
+import Cart from './components/Cart/Cart';
+import CartContext from './context/CartContext';
 
 
 function App() {
   return (
+    <CartContext>
     <BrowserRouter>
       <NavBar/>
         <Switch>
@@ -36,14 +38,14 @@ function App() {
           </Route>
 
            {/* ruta carrito */}
-           <Route path="/cart/:cartId">
-            <ItemDetail/>
+           <Route path="/cart">
+            <Cart/>
           </Route>
 
         </Switch>
       <Footer/>
     </BrowserRouter>
-
+    </CartContext>
   );
 }
 

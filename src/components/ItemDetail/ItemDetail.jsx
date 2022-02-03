@@ -1,16 +1,18 @@
-import React, { useState, useEffect, useParams } from "react";
+import React, { useState, useEffect, useParams, useContext } from "react";
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 import './ItemDetail.css';
 import ItemCount from "../ItemCount/ItemCount";
+import { cartContext } from "../../context/CartContext";
 //import swal from 'sweetalert';
 
 
 const ItemDetail = ({ producto }) => {
-
+    const {addToCart} = useContext(cartContext); 
     const [mostrarItemCount, setMostrarItemCount] = useState(true);
 
     function onAdd(count) {
         alert('Agregaste ' + count + ' producto/s a tu carrito!');
+        addToCart(producto, count);
         setMostrarItemCount(false);
     }
 
