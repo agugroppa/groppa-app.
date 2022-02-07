@@ -33,7 +33,7 @@ const CartContext = ({ children }) => {
     }
 
      const precioTotal = () => {
-          return cart.map((prod) => prod.item.precio * prod.count).reduce((a, b) => a + b)
+        return cart.length ? cart.map((prod) => prod.item.precio * prod.count).reduce((a, b) => a + b) : 0;
     }
 
      const totalCantidad = () => {

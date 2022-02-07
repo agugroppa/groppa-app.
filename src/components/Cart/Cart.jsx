@@ -8,12 +8,12 @@ import CartItem from '../CartItem/CartItem';
 const Cart = () => {
 
   const { cart, clearCart, precioTotal } = useContext(cartContext);
-  const { total, setTotal} = useState (0);
+  const [ total, setTotal ]  = useState (0);
 
 
-   useEffect (() => {
+    useEffect (() => {
     setTotal (precioTotal())
-  },[]); 
+  },[precioTotal]);   
  
   return (
     <>    

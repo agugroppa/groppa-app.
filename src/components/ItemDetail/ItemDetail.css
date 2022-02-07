@@ -1,12 +1,17 @@
 .item-cardDetail{
     display: flex;
-    
+    text-align: center;
+}
+
+.cardItemDetail{
+    display: flex;
 }
 
 .item-headerDetail{
     font-size: x-large; 
     font-style: italic;
     padding-top: 5%;
+    display: flex;                          
 
 }
 
@@ -18,7 +23,8 @@
 }
 .item-priceDetail{
     padding-top: 5%;
-    white-space: nowrap;
+    display: flex;
+    justify-content: center;
 }
 
 .botonTerminarCompra{

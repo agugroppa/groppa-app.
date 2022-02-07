@@ -18,8 +18,7 @@ const ItemDetail = ({ producto }) => {
 
     return (
         <>
-            <button>
-                <div>
+            <div className="cardItemDetail">
                     {(producto.id) ?
                         <>
                             <div className="item-cardDetail">
@@ -45,8 +44,8 @@ const ItemDetail = ({ producto }) => {
                         <>Loading...</>
                     }
 
-                </div>
-            </button>
+            </div>
+            
 
         </>
     );
