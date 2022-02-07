@@ -32,9 +32,18 @@ const CartContext = ({ children }) => {
         setCart ([]);
     }
 
+     const precioTotal = () => {
+          return cart.map((prod) => prod.item.precio * prod.count).reduce((a, b) => a + b)
+    }
+
+     const totalCantidad = () => {
+        return cart.reduce((a, b) => a + b.count, 0)
+    }
+
+
     return (
     
-    <cartContext.Provider value ={{cart, addToCart, deleteItem, clearCart}}>
+    <cartContext.Provider value ={{cart, addToCart, deleteItem, clearCart, precioTotal, totalCantidad}}>
        { children }
     </cartContext.Provider>
     )

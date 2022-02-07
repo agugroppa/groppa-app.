@@ -12,10 +12,8 @@ const ItemList = ({itemList})=>{
                 {itemList.map ((item) => {
                     return <Items key={item.id} item={item}/>;
                 })}
-                </>
-                     
-            :
-
+                </>    
+                :
                 <>
                 Cargando...
                 </>
@@ -26,7 +24,5 @@ const ItemList = ({itemList})=>{
     )
 
 }
-
-
 
 export default ItemList

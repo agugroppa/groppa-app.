@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useParams, useContext } from "react";
-import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
+import React, { useState, useContext } from "react";
+import { Link } from 'react-router-dom';
 import './ItemDetail.css';
 import ItemCount from "../ItemCount/ItemCount";
 import { cartContext } from "../../context/CartContext";
