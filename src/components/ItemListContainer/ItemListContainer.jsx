@@ -1,25 +1,52 @@
 import React, { useEffect, useState } from "react";
 import "./ItemListContainer.css";
 import ItemList from "../ItemList/ItemList";
-import ItemListArray from "../../productos";
+//import ItemListArray from "../../productos";
 import { useParams } from 'react-router-dom';
+import { getFirestore } from "../../firebase/firebase";
 
 
 
 const ItemListContainer = ({ greeting }) => {
 
     const [itemList, setItemList] = useState([]);
-    //const [producto, setProducto] = useState({});
-    const { categoryId } = useParams();
+    const { categoryId } = useParams({});
+
+    useEffect(() => {
+
+        const db = getFirestore();
+        const itemCollection = db.collection("items").where ("category", "==", parseInt(categoryId))//.where('category', '===', 'adidas');
+    
+        
+           itemCollection.get()
+          .then((querySnapShot) => {
+    
+            if (querySnapShot.size === 0) {
+              console.log('no hay documentos con en ese query');
+              return
+            }
+    
+            console.log('hay documentos');
+    
+            setItemList(querySnapShot.docs.map((doc)=> {
+                return { id: doc.id, ...doc.data() }
+            }
+            ));
+            
+          })
+          .catch((err)=>{
+            console.log(err);
+          })
+      }, [categoryId])  
 
 
-    const traerProductos = new Promise((resolve, reject) => {
+   /*  const traerProductos = new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve(ItemListArray);
         }, 100)
-    });
+    }); */
 
-    useEffect(() => {
+    /* useEffect(() => {
         traerProductos.then((res) => {
             let conditional = categoryId
             ? (
@@ -29,10 +56,10 @@ const ItemListContainer = ({ greeting }) => {
             setItemList(conditional);
             
         });
-    }, [categoryId]);
+    }, [categoryId]); */
 
     
-      
+   
     return (
 
         <>
@@ -44,5 +71,6 @@ const ItemListContainer = ({ greeting }) => {
         </>
     );
 }
+
 
 export default ItemListContainer;

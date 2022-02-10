@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
-import {  useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import ItemDetail from "../ItemDetail/ItemDetail";
-import ItemListArray from "../../productos";
+//import ItemListArray from "../../productos";
+import { getFirestore } from "../../firebase/firebase"
+
 
 
  const ItemDetailContainer = ()=> {
@@ -10,8 +12,30 @@ import ItemListArray from "../../productos";
   const [producto, setProducto] = useState({});
  
 useEffect(()=>{
+
+    const db = getFirestore();
+    const itemCollection = db.collection("items");
+    const miItem = itemCollection.doc(productId);
+
+      miItem.get()
+        .then((doc) => {
+          console.log(doc.id)
+         
+          if (!doc.exists){
+            console.log ("No existe este item");
+            return;
+          }
+          setProducto({id: doc.id, ...doc.data()})
+        })
+        .catch((err) => {
+          console.log (err);
+        })
+
+      }, [productId]);
     
-        const  GetItem = new Promise ((resolve, reject)=>{
+      //console.log(producto)
+       
+    /* const  GetItem = new Promise ((resolve, reject)=>{
             setTimeout(()=>{
                 resolve(ItemListArray.find (item=> item.id === productId))
             }, 100)
@@ -21,14 +45,14 @@ useEffect(()=>{
         })
         GetItem.catch ((err)=> {
             setProducto(err)
-        })
+        }) */
     
-});
+/* }); */
 
   return (
     <>
-    {productId}
-      <ItemDetail producto={producto}/>
+    {/*  { productId } */}
+      <ItemDetail producto={producto}/> 
     </>
   );
   }
