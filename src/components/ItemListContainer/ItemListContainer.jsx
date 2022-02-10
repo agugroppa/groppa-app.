@@ -12,12 +12,15 @@ const ItemListContainer = ({ greeting }) => {
     const [itemList, setItemList] = useState([]);
     const { categoryId } = useParams({});
 
-    useEffect(() => {
+      useEffect(() => {
 
         const db = getFirestore();
-        const itemCollection = db.collection("items").where ("category", "==", parseInt(categoryId))//.where('category', '===', 'adidas');
+        const itemCollection = db.collection("items").where ("category", "==", categoryId)
     
-        
+        let ref = categoryId
+        ? db.collection('items').where('category', '==', categoryId)
+        : db.collection('items')
+
            itemCollection.get()
           .then((querySnapShot) => {
     
