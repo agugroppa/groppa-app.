@@ -15,9 +15,9 @@ const ItemListContainer = ({ greeting }) => {
       useEffect(() => {
 
         const db = getFirestore();
-        const itemCollection = db.collection("items").where ("category", "==", categoryId)
+        
     
-        let ref = categoryId
+        let itemCollection = categoryId
         ? db.collection('items').where('category', '==', categoryId)
         : db.collection('items')
 
