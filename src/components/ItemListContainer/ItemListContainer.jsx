@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./ItemListContainer.css";
 import ItemList from "../ItemList/ItemList";
-//import ItemListArray from "../../productos";
 import { useParams } from 'react-router-dom';
 import { getFirestore } from "../../firebase/firebase";
 
@@ -41,26 +40,6 @@ const ItemListContainer = ({ greeting }) => {
             console.log(err);
           })
       }, [categoryId])  
-
-
-   /*  const traerProductos = new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve(ItemListArray);
-        }, 100)
-    }); */
-
-    /* useEffect(() => {
-        traerProductos.then((res) => {
-            let conditional = categoryId
-            ? (
-                res.filter((item) => item.category === categoryId)
-              )
-            : (res);
-            setItemList(conditional);
-            
-        });
-    }, [categoryId]); */
-
     
    
     return (

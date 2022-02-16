@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import './ItemDetail.css';
 import ItemCount from "../ItemCount/ItemCount";
 import { cartContext } from "../../context/CartContext";
-//import swal from 'sweetalert';
 
 
 const ItemDetail = ({ producto }) => {
@@ -11,7 +10,7 @@ const ItemDetail = ({ producto }) => {
     const [mostrarItemCount, setMostrarItemCount] = useState(true);
 
     function onAdd(count) {
-        alert('Agregaste ' + count + ' producto/s a tu carrito!');
+        //alert('Agregaste ' + count + ' producto/s a tu carrito!');
         addToCart(producto, count);
         setMostrarItemCount(false);
     }

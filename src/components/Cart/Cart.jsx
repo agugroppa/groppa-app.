@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom';
 import { cartContext } from '../../context/CartContext';
 import CartItem from '../CartItem/CartItem';
+import Form from '../Form/Form';
 
 const Cart = () => {
 
@@ -28,8 +29,11 @@ const Cart = () => {
           {cart.map(element => <CartItem key={element.item.id} prod={element} />)}
            <p>Total a pagar: $ {total}</p> 
           <button onClick={() => clearCart()}>Vaciar carrito</button>
+          <Form/>
         </div>
       }
+
+      
    </>
   )
 }
