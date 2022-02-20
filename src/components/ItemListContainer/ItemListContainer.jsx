@@ -48,7 +48,7 @@ const ItemListContainer = ({ greeting }) => {
             <div className="greetingStyles">
                 <h1>{greeting}</h1>
             </div>
-            <ItemList itemList={itemList} />
+            <ItemList itemList={itemList} className='stylesItems'/>
 
         </>
     );

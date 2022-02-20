@@ -9,5 +9,13 @@
     font-style: italic;
 }
 
+.item-card{
+    margin: 1.7%;
+}
 
-
+@media (max-width:500px) {
+    .item-card{
+        margin-bottom: 13.7%;
+      
+    }
+    }

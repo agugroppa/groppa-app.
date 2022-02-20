@@ -2,15 +2,15 @@ import React, { useState, useRef, useContext } from "react";
 import { Link } from "react-router-dom";
 import firebase from "firebase/app";
 import { getFirestore } from "../../firebase/firebase";
-//import Cart from "../Cart/Cart";
 import { cartContext } from "../../context/CartContext";
 import { Button } from "bootstrap";
+import './Form.css';
 
 
 const Form = () => {
 
     const [orderId, setOrderId] = useState('');
-    const { cart, precioTotal } = useContext(cartContext);
+    const { cart, precioTotal, clearCart } = useContext(cartContext);
     const [finalizarCompra, setFinalizarCompra] = useState(true);
 
     const nameRef = useRef();
@@ -23,7 +23,6 @@ const Form = () => {
     function graciasPorSuCompra() {
         setFinalizarCompra(false)
     };
-
 
     function handleSubmit(event) {
 
@@ -57,40 +56,31 @@ const Form = () => {
     }
 
     return (
-
         <>
-
             {finalizarCompra &&(  
 
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} className='formStyles' >
                     <h3>Ingresa tus datos:</h3>
 
                     <input type="text" name="name" ref={nameRef} placeholder="Nombre y Apelllido" required />
                     <br />
-
                     <input type="text" name="mobile" ref={mobileRef} placeholder="Nro de Celular" required />
                     <br />
-
                     <input type="text" name="email" ref={emailRef} placeholder="Email" required />
                     <br />
-
                     <input type="text" name="state" ref={stateRef} placeholder="Provincia" required />
                     <br />
-
                     <input type="text" name="city" ref={cityRef} placeholder="Ciudad" required />
                     <br />
-
                     <input type="text" name="address" ref={addressRef} placeholder="Direccion" required />
                     <br />
-
-                    <button type="submit" >Finalizar Compra!</button>
-
+                    <button type="submit">Enviar pedido!</button>
                 </form>
             )}
             {orderId && (     
                 <div>
-                    <h4>Gracias por elegirnos!! {/* orderId && */ (<h1>Felicitaciones tu order es {orderId}</h1>)}</h4>
-                    
+                    <p>Gracias por elegirnos!! {(<p>Felicitaciones tu orden es: {orderId}</p>)}</p>
+                    <Link to='/'><button onClick={() => clearCart()} className= 'buttonHome'>Finalizar Compra!</button></Link>
                 </div>
             )}
 

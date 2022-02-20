@@ -2,10 +2,13 @@ import React from "react";
 import Items from "../Items/Items";
 
 
+
+
 const ItemList = ({itemList})=>{
 
     return (
         <>
+        <div >
             {
                 (itemList.length > 0) ? 
                <> 
@@ -19,7 +22,7 @@ const ItemList = ({itemList})=>{
                 </>
 
             }
-
+        </div>
         </>
     )
 

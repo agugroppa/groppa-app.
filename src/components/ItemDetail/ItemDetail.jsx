@@ -10,7 +10,7 @@ const ItemDetail = ({ producto }) => {
     const [mostrarItemCount, setMostrarItemCount] = useState(true);
 
     function onAdd(count) {
-        //alert('Agregaste ' + count + ' producto/s a tu carrito!');
+        
         addToCart(producto, count);
         setMostrarItemCount(false);
     }

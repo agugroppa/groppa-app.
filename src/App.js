@@ -13,38 +13,37 @@ import CartContext from './context/CartContext';
 function App() {
   return (
     <CartContext>
-    <BrowserRouter>
-      <NavBar/>
+      <BrowserRouter>
+        <NavBar />
         <Switch>
-
+          
           {/* ruta home */}
           <Route exact path="/">
-              <div className="App">
+            <div className="App">
               <header>
-              <ItemListContainer greeting={"Bienvenido a BARA SUSHI!"}/>
+                <ItemListContainer greeting={"Bienvenido a BARA SUSHI!"} />
               </header>
-              </div>
+            </div>
           </Route>
-
+          
           {/* {/* ruta categorias */}
           <Route path="/category/:categoryId">
-          <ItemListContainer/>
-            Estás en categorias
+            <ItemListContainer />
           </Route>
-
+          
           {/* ruta producto */}
           <Route path="/product/:productId">
-            <ItemDetailContainer/>
+            <ItemDetailContainer />
           </Route>
-
-           {/* ruta carrito */}
-           <Route path="/cart">
-            <Cart/>
+          
+          {/* ruta carrito */}
+          <Route path="/cart">
+            <Cart />
           </Route>
-
+        
         </Switch>
-      <Footer/>
-    </BrowserRouter>
+        <Footer />
+      </BrowserRouter>
     </CartContext>
   );
 }

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
 import ItemDetail from "../ItemDetail/ItemDetail";
-import { getFirestore } from "../../firebase/firebase"
+import { getFirestore } from "../../firebase/firebase";
+
 
 
 
@@ -34,8 +35,8 @@ useEffect(()=>{
     
   return (
     <>
-    {/*  { productId } */}
-      <ItemDetail producto={producto}/> 
+    <div className="StylesItemDetailContainer"><ItemDetail producto={producto}/></div>
+       
     </>
   );
   }
